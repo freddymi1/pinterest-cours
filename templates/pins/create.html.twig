@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    </head>
+    <body>
+       <h1>Create pin</h1>
+
+        {# <form method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token('pins_create') }}" >
+            <div>
+                <h3><label for="title">Titre</label></h3>
+                <input id="title" type="text" name="title">
+            </div>
+
+            <div>
+                <h3><label for="description">Password</label></h3>
+                <textarea id="description" name="description" rows="5" cols="50" ></textarea>
+            </div>
+
+            <div>
+                <input type="submit" class="btn" value="Create pin">
+            </div>
+        </form> #}
+        
+        {# {{ form(form) }} #}
+        {# or  #}
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" class="btn" value="Create pin">
+        {{ form_end(form) }}
+    </body>
+</html>
+
+

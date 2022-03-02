@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    </head>
+    <body>
+        <h1>Toutes les pins {{pins|length}}</h1>
+        <a href="{{ path('app_pins_create') }}">Creer pin</a>
+
+        {# {% if pins|length > 0 %}
+            {% for pin in pins %}
+                <article>
+                    {# <h2>{{pin.getTitle()}}</h2>
+                    <p>{{pin.getDescription()}}</p>  #}
+                    {# <h2>{{pin.title}}</h2>
+                    <p>{{pin.description}}</p>
+                </article>
+            {% endfor %}
+        {% else %}
+            <p>Pas de pin disponnible</p>
+        {% endif %} #}
+        {# OR #}
+        <table>
+            <thead>
+                <th>Titre</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                {% for pin in pins %}
+                    <tr>
+                        <td>
+                            <h2><a href="{{ path("app_pins_detail", {'id':pin.id})}}">{{pin.title}}</a></h2>
+                        </td>
+                            {# <h2>{{pin.getTitle()}}</h2>
+                            <p>{{pin.getDescription()}}</p>  #}
+                            
+                        <td>
+                            <p>{{pin.description}}</p>
+                        </td>
+                    </tr>
+                {% else %}
+                    <p>Pas de pin disponnible</p>
+                {% endfor %}
+            </tbody>
+        </table>
+        {# {% for pin in pins %}
+            <article>
+                <h2><a href="{{ path("app_pins_detail", {'id':pin.id})}}">{{pin.title}}</a></h2>
+                <p>{{pin.description}}</p>
+            </article>
+        {% else %}
+            <p>Pas de pin disponnible</p>
+        {% endfor %} #}
+    </body>
+</html>
